@@ -5,76 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes</title>
     <style>
+        @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap");
+    
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            font-family: "Manrope", sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
             margin: 0;
             padding: 0;
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-
+    
         h1, h2 {
             text-align: center;
             margin-bottom: 20px;
-            color: #4CAF50;
+            color: #4caf50;
+            font-weight: 700;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
         }
-
+    
         .container {
             width: 90%;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 30px auto;
             padding: 20px;
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin-top: 30px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .note-title {
-            font-weight: bold;
-            color: #4CAF50;
-        }
-
+    
         .filter-container, .form-container {
             margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #f7f7f7;
+            padding: 20px;
+            background: #f7f9fc;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-
+    
         .filter-container form, .form-container form {
             display: flex;
             flex-wrap: wrap;
             gap: 15px;
+            align-items: center;
         }
-
+    
         .filter-container form input,
         .filter-container form select,
         .form-container form input,
@@ -83,48 +61,104 @@
         .form-container form button {
             flex: 1;
             min-width: 200px;
-            padding: 10px;
+            padding: 12px;
             font-size: 16px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            outline: none;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
-
+    
+        .filter-container form input:focus,
+        .filter-container form select:focus,
+        .form-container form input:focus,
+        .form-container form textarea:focus,
+        .form-container form select:focus {
+            border-color: #4caf50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+        }
+    
         .filter-container form button,
         .form-container form button {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #4caf50, #00660c);
             color: white;
             border: none;
             cursor: pointer;
-            transition: background-color 0.3s;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-
+    
         .filter-container form button:hover,
         .form-container form button:hover {
-            background-color: #45a049;
+            background: linear-gradient(135deg, #5cff7d, #2aff27);
+            transform: scale(1.05);
         }
-
+    
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+    
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+    
+        th {
+            background-color: #4caf50;
+            color: white;
+            text-transform: uppercase;
+        }
+    
+        tr:nth-child(even) {
+            background-color: #f7f9fc;
+        }
+    
+        tr:hover {
+            background-color: #e9f5e6;
+        }
+    
+        .note-title {
+            font-weight: bold;
+            color: #4caf50;
+        }
+    
         .actions button {
             background-color: #2196F3;
             color: white;
             border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
+            padding: 10px 15px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-
+    
         .actions button:hover {
             background-color: #0b7dda;
+            transform: scale(1.05);
         }
-
+    
         .actions form button {
             background-color: #f44336;
         }
-
+    
         .actions form button:hover {
             background-color: #d32f2f;
         }
-    </style>
+    
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+    </style>    
 </head>
 <body>
     <div class="container">

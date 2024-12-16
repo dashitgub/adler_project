@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Вход</title>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Manrope:wght@200..800&display=swap");
+    
       body {
         font-family: "Manrope", sans-serif;
         color: #333;
@@ -16,121 +16,172 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        overflow: hidden;
       }
-
+    
       .wrapper {
-        background: #fff;
+        background: #ffffff;
         display: flex;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        overflow: hidden;
+        animation: fadeIn 1s ease-out;
       }
-
+    
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    
       .iceCream {
-        background: linear-gradient(135deg, #2aff27, #4CAF50);
-        border-radius: 30px 30px 120px 30px;
+        background: linear-gradient(135deg, #4caf50, #2aff27);
+        border-radius: 20px 0 0 20px;
         display: flex;
         align-items: center;
-        padding-left: 48px;
-        padding-right: 30px;
-        width: 580px;
+        justify-content: center;
+        width: 50%;
+        min-width: 300px;
+        padding: 20px;
+        position: relative;
       }
-
+    
+      .iceCream::before {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        top: 10%;
+        left: 10%;
+        z-index: 1;
+      }
+    
+      .iceCream::after {
+        content: "";
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        bottom: 15%;
+        right: 15%;
+        z-index: 1;
+      }
+    
       .bannerHeading {
-        font-size: 120px;
+        font-size: 80px;
         font-weight: 700;
         font-family: "Amatic SC", sans-serif;
         color: #ffffff;
+        z-index: 2;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        line-height: 1.2;
+        text-align: center;
       }
-
+    
       .container {
-        padding: 2rem;
-        border-radius: 10px;
-        width: 100%;
-        max-width: 600px;
-      }
-
-      .heading {
+        padding: 3rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 30px;
+        justify-content: center;
+        width: 50%;
       }
-
-      h1 {
-        font-size: 90px;
+    
+      .heading h1 {
+        font-size: 60px;
         margin: 0;
         text-align: center;
-        color: #4CAF50;
+        color: #4caf50;
         font-family: "Amatic SC", sans-serif;
-        font-weight: 400;
+        font-weight: 700;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       }
-
-      h3 {
-        color: #999999;
-        font-size: 16px;
-        margin: 0;
+    
+      .heading h3 {
+        color: #777;
+        font-size: 18px;
+        margin: 10px 0 30px;
         font-weight: 400;
+        text-align: center;
       }
-
+    
       form {
-        margin: 0px auto;
         display: flex;
         flex-direction: column;
-        width: 360px;
+        width: 100%;
+        max-width: 360px;
+        gap: 20px;
       }
-
+    
       label {
-        margin-bottom: 0.5rem;
         font-weight: bold;
-        color: #999999;
+        color: #555;
       }
-
+    
       input {
-        margin-bottom: 1rem;
-        height: 54px;
-        padding: 0px 16px;
-        border-radius: 12px;
-        font-size: 1rem;
-        background-color: #f5f7fa;
-        outline: none;
-        border: none;
-        font-family: "Manrope", sans-serif;
-      }
-
-      button {
-        background-color: #4CAF50;
-        color: #fff;
-        height: 86px;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
+        height: 50px;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
         font-size: 16px;
-        transition: background-color 0.3s ease;
-        font-family: "Manrope", sans-serif;
+        outline: none;
+        transition: border 0.3s ease, box-shadow 0.3s ease;
       }
-
+    
+      input:focus {
+        border-color: #4caf50;
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+      }
+    
+      button {
+        background: linear-gradient(135deg, #4caf50, #2aff27);
+        color: white;
+        font-size: 18px;
+        height: 60px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    
       button:hover {
-        background-color: #5cff7d;
+        background: linear-gradient(135deg, #5cff7d, #32cc44);
+        transform: scale(1.05);
       }
-
+    
       .login-link {
+        margin-top: 20px;
         text-align: center;
-        margin-top: 1rem;
       }
-
+    
       .login-link a {
-        color: #67ff6c;
+        color: #4caf50;
         text-decoration: none;
         font-size: 16px;
+        font-weight: bold;
+        transition: color 0.3s ease;
       }
-
+    
+      .login-link a:hover {
+        color: #2aff27;
+      }
+    
       .alreadyHvAcc {
-        color: #999999;
+        color: #555;
         font-size: 16px;
       }
-
-      .login-link a:hover {
-        text-decoration: underline;
-      }
-    </style>
+    </style>    
   </head>
   <body>
     <div class="wrapper">
